@@ -1,25 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-function App() {
-  return (
+import './App.css';
+// import Q from './Q';
+// import A from './A';
+
+class App extends React.Component {
+  state = {
+    checked : false
+  }
+
+  show = ()=>{
+    let ant = document.createElement('div')
+    ant.setAttribute('class', 'added')
+    ant.textContent = 'Fast Learning Curve'
+    if (!this.state.checked) {
+      document.querySelector('.Q').after(ant)
+    }
+    else (
+
+      document.querySelector('.added').remove()
+    )
+    this.setState({checked : !this.state.checked})
+    
+  }
+  render() { 
+    return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <div className="qbox">
+          <div className="Q">
+              <span onClick={this.show}>Why is React great</span> 
+              <div className="cl"></div>
+          </div>
+        </div>
+
+        {/* <div className="A">
+          <p>Fast Learning Curve</p>
+        </div> */}
+
     </div>
   );
+  }
 }
-
+ 
 export default App;
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <div className="ButtC">
+
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default App;
