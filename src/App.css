@@ -5,16 +5,19 @@
   text-align: center;
   margin: auto auto;
 }
-body {
+/* body {
+  background-color: blue;
+} */
+.plus , .minus , .display {
+  display: inline-block;
+  font-size: 50px;
+}
+.display {
+  width: 90px;
+}
+.reset {
   background-color: blue;
 }
-.Q {
-  /* display: none; */
-  border-bottom: 1px white solid;
-}
-.cl {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background-color: white;
+.reset:hover {
+  cursor: pointer;
 }

@@ -6,36 +6,27 @@ import './App.css';
 
 class App extends React.Component {
   state = {
-    checked : false
+    num : 0
   }
-
-  show = ()=>{
-    let ant = document.createElement('div')
-    ant.setAttribute('class', 'added')
-    ant.textContent = 'Fast Learning Curve'
-    if (!this.state.checked) {
-      document.querySelector('.Q').after(ant)
-    }
-    else (
-
-      document.querySelector('.added').remove()
-    )
-    this.setState({checked : !this.state.checked})
-    
+  add = () => {
+    this.setState({num : this.state.num +1})
   }
+  reduce = () => {
+    this.setState({num : this.state.num -1})
+  }
+  reset = () => {
+    this.setState({num : 0})
+  }
+  
   render() { 
     return (
     <div className="App">
-        <div className="qbox">
-          <div className="Q">
-              <span onClick={this.show}>Why is React great</span> 
-              <div className="cl"></div>
-          </div>
-        </div>
-
-        {/* <div className="A">
-          <p>Fast Learning Curve</p>
-        </div> */}
+      <div className="container">
+        <div onClick={this.reduce} className="minus">-</div>
+        <div className="display">{this.state.num}</div>
+        <div onClick={this.add} className="plus">+</div>
+        <div onClick={this.reset} className="reset">reset</div>
+      </div>
 
     </div>
   );
